@@ -1,0 +1,36 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": "eslint-config-airbnb-base",
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true,
+    "sinon": true,
+    "matchRange": true
+  },
+  "rules": {
+    "global-require": [0],
+    "max-len": [0],
+    "comma-dangle": [2, "never"],
+    "import/no-dynamic-require": [0],
+    "no-unused-vars": [2, { "args": "none" }],
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
+    "strict": [0],
+    "no-shadow": [0],
+    "no-use-before-define": [0],
+    "no-param-reassign": [0],
+    "no-underscore-dangle": [0],
+    "class-methods-use-this": [0],
+    "no-plusplus": [0],
+    "no-nested-ternary": [0],
+    "no-unused-expressions": [0],
+    "camelcase": [0],
+    "max-classes-per-file": [0],
+    "no-return-assign": [0]
+  }
+}
