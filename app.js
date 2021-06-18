@@ -3,20 +3,9 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const sqlite3 = require('sqlite3').verbose();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
-const db_name = path.join(__dirname, 'data', 'nmap.db');
-
-/* eslint-disable consistent-return, no-console */
-const db = new sqlite3.Database(db_name, (err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Successful connection to the database \'nmap.db\'');
-});
-/* eslint-enable consistent-return, no-console */
+const db = require('./database');
 
 const app = express();
 // view engine setup
