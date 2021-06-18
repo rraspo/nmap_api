@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "lint": "eslint .",
-    "migrate": "node ./database/migrations/create-tables.js"
+    "migrate": "node ./database/migrations/create-tables.js",
+    "seed": "node ./database/seeds/seed-tables.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
