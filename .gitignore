@@ -1,5 +1,7 @@
 # Dependency directory
 node_modules
 node_modules/*
-
+# Sqlite3 database directoy
+database/data
+# Sample results
 sample_nmap_results
