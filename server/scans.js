@@ -7,8 +7,9 @@ const db = require('../database');
 
 /* eslint-disable consistent-return, no-console */
 router.get('/scans', (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
   const sql = `
-    SELECT Scans.ID as SCAN_ID, PORT, STATUS, TRANSPORT, PROTOCOL, Hosts.ID, Hosts.IP
+    SELECT Scans.ID as SCAN_ID, PORT, STATUS, TRANSPORT, PROTOCOL, SCAN_DATE, Hosts.ID, Hosts.IP
     FROM Scans LEFT JOIN Hosts ON Hosts.ID = Scans.Host_ID
   `;
   db.all(sql, [], (err, rows) => {
@@ -21,6 +22,7 @@ router.get('/scans', (req, res, next) => {
 });
 
 router.post('/scans', async (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
   try {
     if (!req.files) {
       res.send({
@@ -30,7 +32,6 @@ router.post('/scans', async (req, res, next) => {
     } else {
       const { scan } = req.files;
       scan.mv(`./uploads/${scan.name}`);
-      // var scanStream = new ScanStream();
       fs.createReadStream(`./uploads/${scan.name}`).pipe(scanStream);
       res.send('Processed');
     }

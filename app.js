@@ -1,8 +1,8 @@
 const express = require('express');
-const createError = require('http-errors');
 const morgan = require('morgan');
 const fileUpload = require('express-fileupload');
 const apiRoutes = require('./server/scans');
+const createError = require('http-errors');
 
 const app = express();
 
@@ -12,7 +12,6 @@ app.use(fileUpload({
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use('/', apiRoutes);
 
 // catch 404 and forward to error handler
